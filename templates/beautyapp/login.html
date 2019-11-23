@@ -1,0 +1,27 @@
+
+{% extends 'beautyapp/indexs.html' %}
+{% load static %}
+{% block login %}
+
+<div class="container rcn">
+  <div class="row">
+    <h3 class="text-center h3">LogIn Here <i class="fa fa-lock"></i></h3>
+  </div>
+  <hr class="servicehd1">
+
+<form action="{% url 'login' %}" method="post">
+  {% csrf_token %}
+
+  <input type="text" name="username" placeholder="username" class="form-control"><br>
+  <input type="password" name="password" placeholder="password" class="form-control"><br>
+  <input type="submit" name ="submit" class="btn btn-success" style="width:100%">
+</form>
+<div>
+  {% for  message in messages %}
+  <h1 class="h1">{{message}}</h1>
+  {%endfor%}
+</div>
+</div>
+
+
+{%endblock%}
